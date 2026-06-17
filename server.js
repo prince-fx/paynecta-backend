@@ -9,14 +9,13 @@ app.use(express.json());
 
 app.post("/stkpush", async (req, res) => {
   try {
-    const { phone } = req.body;
-
+    const { phone, amount } = req.body;
     const response = await axios.post(
       "https://paynecta.co.ke/api/v1/payment/initialize",
       {
         code: "PNT_532494",
         mobile_number: phone,
-        amount: 500
+        amount: amount
       },
       {
         headers: {
