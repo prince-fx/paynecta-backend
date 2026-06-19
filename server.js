@@ -29,13 +29,18 @@ app.post("/stkpush", async (req, res) => {
     res.json(response.data);
 
   } catch (error) {
-    console.error(error.response?.data || error.message);
 
-    res.status(500).json({
-      success: false,
-      error: error.response?.data || error.message
-    });
+console.log("PAYNECTA ERROR:");
+console.log(JSON.stringify(error.response?.data, null, 2));
+
+res.status(500).json({
+success: false,
+error: error.response?.data || error.message
+});
+
   }
 });
 
-app.listen(process.env.PORT || 10000);
+app.listen(process.env.PORT || 10000, () => {
+  console.log("Server started successfully");
+});
