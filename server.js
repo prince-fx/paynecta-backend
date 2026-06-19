@@ -15,6 +15,12 @@ console.log(req.body);
 
 console.log("PHONE RECEIVED:", phone);
 console.log("AMOUNT:", amount);
+    console.log("PAYNECTA PAYLOAD:");
+console.log({
+  code: "PNT_532494",
+  mobile_number: phone,
+  amount: amount
+});
     const response = await axios.post(
       "https://paynecta.co.ke/api/v1/payment/initialize",
       {
