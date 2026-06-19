@@ -45,6 +45,9 @@ console.log({
       }
     );
 
+console.log("PAYNECTA RESPONSE:");
+console.log(response.data);
+
     res.json(response.data);
 
   } catch (error) {
