@@ -10,8 +10,11 @@ app.use(express.json());
 app.post("/stkpush", async (req, res) => {
   try {
     const { phone, amount } = req.body;
-    console.log("PHONE RECEIVED:", phone);
-    console.log("AMOUNT:", amount);
+    console.log("REQUEST BODY:");
+console.log(req.body);
+
+console.log("PHONE RECEIVED:", phone);
+console.log("AMOUNT:", amount);
     const response = await axios.post(
       "https://paynecta.co.ke/api/v1/payment/initialize",
       {
