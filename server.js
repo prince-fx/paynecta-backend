@@ -21,6 +21,7 @@ console.log({
   mobile_number: phone,
   amount: amount
 });
+    
     const response = await axios.post(
       "https://paynecta.co.ke/api/v1/payment/initialize",
       {
