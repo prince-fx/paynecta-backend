@@ -10,6 +10,14 @@ app.use(express.json());
 app.post("/stkpush", async (req, res) => {
   try {
     const { phone, amount } = req.body;
+    if (!/^2547\d{8}$/.test(phone)) {
+  return res.status(400).json({
+    success: false,
+    error: {
+      message: "Only Safaricom numbers starting with 07 are supported."
+    }
+  });
+    }
     console.log("REQUEST BODY:");
 console.log(req.body);
 
