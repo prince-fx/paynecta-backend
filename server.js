@@ -53,9 +53,11 @@ console.log({
 console.log("PAYNECTA ERROR:");
 console.log(JSON.stringify(error.response?.data, null, 2));
 
-res.status(500).json({
-success: false,
-error: error.response?.data || error.message
+res.status(error.response?.status || 500).json({
+    success: false,
+    error: error.response?.data || {
+        message: error.message
+    }
 });
 
   }
